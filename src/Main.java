@@ -1,11 +1,28 @@
-public class Main {
+import java.util.Scanner;
 
+public class Main {
     public static void main(String[] args) {
-        Student juan = new Student("juan","000564878",17,'m');
+        Scanner scanner = new Scanner(System.in);
+
+        // Crear instancias de Student
+        Student juan = new Student("Juan", " 000564878 ", 18, 'm');
         Student samuel = new Student();
-        System.out.println(juan);
-        System.out.println(samuel);
-        System.out.println(juan.studentId);
-        System.out.println(samuel.studentId);
+
+        System.out.println("Información de Juan:");
+        juan.tellInfo();
+        System.out.println("ID de Juan: " + juan.studentId);
+
+        juan.repeatAfter("No soy ni Goku ni Vegeta,soy el encargado de eliminarte");
+        System.out.print("¿Has cumplido años? (si/no): ");
+        String respuesta = scanner.nextLine();
+
+        if (respuesta.equalsIgnoreCase("si")) {
+            juan.haveBirthday();
+            System.out.println("¡Feliz cumpleaños, " + juan.studentName + "! Ahora tienes " + juan.studentAge + " años.");
+        } else {
+            System.out.println("No se realizaron cambios en la edad.");
+        }
+
+        scanner.close();
     }
 }
